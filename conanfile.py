@@ -7,12 +7,12 @@ class GumboqueryConan(ConanFile):
     license = "MIT License"
     url = "<Package recipe repository url here, for issues about the package>"
     description = "A C++ library that provides jQuery-like selectors for Google's Gumbo-Parser."
-    requires = "GumboParser/0.10.1@altairwei/testing"
+    requires = "Gumbo/0.10.1@altairwei/testing"
     settings = "os", "compiler", "build_type", "arch"
     exports_sources = ["CMakeLists.txt"]
     options = {"shared": [True, False]}
     default_options = "shared=False"
-    generators = "cmake"
+    generators = "cmake", "cmake_find_package"
     _source_subfolder = "source_subfolder"
 
     def source(self):
