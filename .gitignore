@@ -1,0 +1,5 @@
+.vscode
+test_package/build
+test_package/.DS_Store
+tmp
+.DS_Store
