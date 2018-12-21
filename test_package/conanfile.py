@@ -5,7 +5,7 @@ from conans import ConanFile, CMake, tools
 
 class GumboqueryTestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
-    generators = "cmake", "cmake_find_package"
+    generators = "cmake"
     requires = "Gumbo/0.10.1@altairwei/testing"
 
     def build(self):

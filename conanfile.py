@@ -11,7 +11,7 @@ class GumboqueryConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     exports_sources = ["CMakeLists.txt", "CMakeLists.src.txt"]
     options = {"shared": [True, False]}
-    default_options = "shared=False"
+    default_options = "shared=False", "Gumbo:shared=False", "Gumbo:fPIC=True"
     generators = "cmake", "cmake_find_package"
     _source_subfolder = "source_subfolder"
 
@@ -46,5 +46,9 @@ class GumboqueryConan(ConanFile):
         self.copy("*.a", dst="lib", keep_path=False)
 
     def package_info(self):
+        # Add Gumbo include_path to user, which is needed by
+        # some GumboQuery header files.
+        self.cpp_info.includedirs.append(
+            os.path.join(self.deps_cpp_info["Gumbo"].include_paths[0], "gumbo-parser"))
         self.cpp_info.libs = tools.collect_libs(self)
 
