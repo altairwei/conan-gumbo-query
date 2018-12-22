@@ -1,7 +1,5 @@
 import os
-
 from conans import ConanFile, CMake, tools
-
 
 class GumboqueryTestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
