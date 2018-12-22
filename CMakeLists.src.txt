@@ -3,6 +3,10 @@
 # Gumbo dependency include directory.
 include_directories(${Gumbo_INCLUDE_DIRS}/gumbo-parser)
 
+if(MSVC)
+    add_compile_options("/utf-8")
+endif()
+
 file(GLOB SRC_FILES *.cpp)
 # add_library(gumbo_query_shared SHARED ${SRC_FILES})
 # set_target_properties(gumbo_query_shared PROPERTIES OUTPUT_NAME "gq")

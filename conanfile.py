@@ -5,13 +5,13 @@ class GumboqueryConan(ConanFile):
     name = "GumboQuery"
     version = "latest"
     license = "MIT License"
-    url = "<Package recipe repository url here, for issues about the package>"
+    url = "https://github.com/altairwei/conan-gumbo-query"
     description = "A C++ library that provides jQuery-like selectors for Google's Gumbo-Parser."
     requires = "Gumbo/0.10.1@altairwei/testing"
     settings = "os", "compiler", "build_type", "arch"
     exports_sources = ["CMakeLists.txt", "CMakeLists.src.txt"]
     options = {"shared": [True, False]}
-    default_options = "shared=False", "Gumbo:shared=False", "Gumbo:fPIC=True"
+    default_options = "shared=False"
     generators = "cmake", "cmake_find_package"
     _source_subfolder = "source_subfolder"
 
