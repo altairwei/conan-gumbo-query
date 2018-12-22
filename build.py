@@ -6,5 +6,6 @@ if __name__ == "__main__":
         archs=["x86_64"], visual_versions=["15"], gcc_versions=["7"], 
 	    apple_clang_versions=["9.1"], visual_runtimes=["MD", "MDd"])
     builder.add_common_builds(pure_c=False)
-    builder.remove_build_if(lambda build: build.settings["compiler.libcxx"] == "libstdc++")
+    if platform.system() != "Windows":
+        builder.remove_build_if(lambda build: build.settings["compiler.libcxx"] == "libstdc++")
     builder.run()
